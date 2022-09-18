@@ -1,3 +1,20 @@
+body{
+  background: linear-gradient(45deg, #ee7752, #e73c7e, #7300a8, #13ffc8);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+	height: 100vh;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 .App {
   text-align: center;
 }
@@ -35,4 +52,84 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(43, 43, 43,0.5); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(43, 43, 43); 
+}
+
+
+.material-icons {
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: bottom;
+}
+
+.Identify{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5%;
+}
+
+.results{
+  width: 40vw;
+  height: 80vh;
+  background: radial-gradient(circle, rgba(100,100,100,0.5) 0%, rgba(10,10,10,0.5) 100%);
+  border-radius: 2%;
+  border: 1px solid rgb(88,88,88);
+  overflow: auto;
+}
+.resultschild{
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+}
+
+.search{
+
+  width: 40vw;
+  height: 80vh;
+  /*background-color: rgba(88, 88, 88, 0.459);*/
+  background: radial-gradient(circle, rgba(100,100,100,0.5) 0%, rgba(10,10,10,0.5) 100%);
+  border-radius: 2%;
+  border: 1px solid rgb(88,88,88);
+  overflow: auto;
+  color: aliceblue;
+}
+
+input{
+  outline: none;
+  border-radius: 3px;
+  border: 0px;
+  width: 90%;
+  height: 30px;
+  background-color: rgba(10, 10, 10, 0.199);
+
+}
+#exampleSelect{
+  outline: none;
+  border-radius: 3px;
+  border: 0px;
+  width: 90%;
+  height: 30px;
+  background-color: rgba(10, 10, 10, 0.199);
+  color: rgb(0, 149, 235);
 }

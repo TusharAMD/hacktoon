@@ -1,0 +1,43 @@
+from flask_cors import CORS,cross_origin
+import flask
+from flask import Flask,request
+
+from flask import Flask
+
+app = Flask(__name__)
+CORS(app)
+
+database = [
+    {"name":"Tom","url":"https://upload.wikimedia.org/wikipedia/en/f/f6/Tom_Tom_and_Jerry.png","type":"Cat","gender":"Male","color":"Grey","genre":"Slapstick","profession":"No Profession","powers":"No Powers","link":"https://www.hulu.com/movie/tom-jerry-23dc737a-8a44-4eee-aecf-ac65c20ce600#:~:text=Hulu%2C%20Disney%2B%2C%20and%20ESPN%2B,-What%27s%20Included%20in"},
+    {"name":"Jerry","url":"https://i.pinimg.com/originals/85/58/29/85582987f7125e4868fdcb28661e934f.png","type":"Mouse","gender":"Male","color":"Brown","genre":"Slapstick","profession":"No Profession","powers":"No Powers","link":"https://www.hulu.com/movie/tom-jerry-23dc737a-8a44-4eee-aecf-ac65c20ce600#:~:text=Hulu%2C%20Disney%2B%2C%20and%20ESPN%2B,-What%27s%20Included%20in"},
+    {"name":"Pink Panther","url":"https://upload.wikimedia.org/wikipedia/en/9/96/Pink_Panther.png","type":"Panther","gender":"Male","color":"Pink","genre":"Slapstick","profession":"No Profession","powers":"No Powers","link":"https://www.amazon.com/gp/video/detail/B00EDB97TC?tag=tvg_aiv_showcard-20&ascsubtag=tvguide-be77cc42-fb24-47f9-a74c-7e71402c66db-dtp"},
+    {"name":"Oswald","url":"https://wp.scoopwhoop.com/wp-content/uploads/2017/04/27a2356d-b415-47b4-b8bf-f0fa1aa83ce5.jpg","type":"Octopus","gender":"Male","color":"Blue","genre":"Moral Values","profession":"No Profession","powers":"No Powers","link":"https://www.amazon.com/Oswald/dp/B004DMTCM8"},
+    {"name":"Dexter","url":"https://i.pinimg.com/originals/0e/0f/8b/0e0f8b42b900892b904381e532306bd0.jpg","type":"Human","gender":"Male","color":"Human - white","genre":"Sci-Fic","profession":"Scientist","powers":"No Powers","link":"https://www.amazon.com/Dexters-Laboratory-Season-1/dp/B009UFTYIA"},
+]
+
+@cross_origin
+@app.route('/identifier',methods=["POST","GET"])
+def identifier():
+    if request.method=="POST":
+        newdatabase = []
+        query = request.json["query"]
+        print(query)
+        for q in query:
+            #print("___")
+            #print(q)
+            for d in database:
+                #print(d)
+                if q in d.values():
+                    pass
+                    #print(q,d)
+                    newdatabase.append(d)
+        
+        
+        print(newdatabase)
+        return {"data":newdatabase}
+    if request.method=="GET":
+        return {"data":database}
+    return 'Hello, World!'
+    
+if __name__=="__main__":
+    app.run(debug=True)
